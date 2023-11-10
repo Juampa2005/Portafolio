@@ -56,15 +56,73 @@
             <div class="carousel-item active">
               <div class="row align-items-center">
                 <div class="col text-center ">
-                  <h1 class="text-end fw-bolder">Proyecto 1</h1>
+                  <h1 class="text-end fw-bolder">IA Detección de objetos</h1>
                   <div class="text-end ">
-                    <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo dolores incidunt earum dolorem
-                      quam suscipit temporibus deleniti, sapiente corporis qui illo, ea, quaerat expedita officia cum
-                      doloremque explicabo? Minima, voluptas..</h2>
+                    <h2>Detecta en tiempo real mediante una webcam mediante Machine learning en la pagina web de
+                      Teachable Machine. Detecta 4 Cosas diferentes:</h2>
                   </div>
                 </div>
-                <div class="col"><img src="./img/31oItpNgxIL._SX354_SY354_BL0_QL100__UXNaN_FMjpg_QL85_.jpg"
-                    class="d-block w-100 rounded-3" alt="...">
+                <div class="col">
+                  <div>Teachable Machine Image Model</div>
+                  <button type="button" onclick="init()">Start</button>
+                  <div id="webcam-container"></div>
+                  <div id="label-container"></div>
+                  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+                  <script
+                    src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+                  <script type="text/javascript">
+                    // More API functions here:
+                    // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+                    // the link to your model provided by Teachable Machine export panel
+                    const URL = "https://teachablemachine.withgoogle.com/models/a_59o-H5I/";
+
+                    let model, webcam, labelContainer, maxPredictions;
+
+                    // Load the image model and setup the webcam
+                    async function init() {
+                      const modelURL = URL + "model.json";
+                      const metadataURL = URL + "metadata.json";
+
+                      // load the model and metadata
+                      // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+                      // or files from your local hard drive
+                      // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+                      model = await tmImage.load(modelURL, metadataURL);
+                      maxPredictions = model.getTotalClasses();
+
+                      // Convenience function to setup a webcam
+                      const flip = true; // whether to flip the webcam
+                      webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+                      await webcam.setup(); // request access to the webcam
+                      await webcam.play();
+                      window.requestAnimationFrame(loop);
+
+                      // append elements to the DOM
+                      document.getElementById("webcam-container").appendChild(webcam.canvas);
+                      labelContainer = document.getElementById("label-container");
+                      for (let i = 0; i < maxPredictions; i++) { // and class labels
+                        labelContainer.appendChild(document.createElement("div"));
+                      }
+                    }
+
+                    async function loop() {
+                      webcam.update(); // update the webcam frame
+                      await predict();
+                      window.requestAnimationFrame(loop);
+                    }
+
+                    // run the webcam image through the image model
+                    async function predict() {
+                      // predict can take in an image, video or canvas html element
+                      const prediction = await model.predict(webcam.canvas);
+                      for (let i = 0; i < maxPredictions; i++) {
+                        const classPrediction =
+                          prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+                        labelContainer.childNodes[i].innerHTML = classPrediction;
+                      }
+                    }
+                  </script>
                 </div>
               </div>
 
@@ -73,14 +131,13 @@
             <div class="carousel-item">
               <div class="row align-items-center justify-content-center">
                 <div class="col text-center ">
-                  <h1 class="text-end fw-bolder   ">Proyecto 2</h1>
+                  <h1 class="text-end fw-bolder   ">Aplicacion con FlutterFlow</h1>
                   <div class="text-end ">
-                    <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In quibusdam eos ex, assumenda
-                      repellendus iste, cupiditate quaerat expedita, harum alias ducimus facilis dolorem nisi delectus
-                      sequi doloribus omnis. Iste, explicabo.</h2>
+                    <h2>Realize una aplicacion sobre como seria una aplicacion de tiendas de guitarra</h2>
                   </div>
                 </div>
-                <div class="col"><img src="./img/Enjambre.jpg" class="d-block w-100 rounded-3" alt="...">
+                <div class="col"><img src="./img/Captura de pantalla 2023-11-09 110601.png"
+                    class="d-block w-50 rounded-3" alt="...">
                 </div>
               </div>
             </div>
@@ -141,9 +198,10 @@
             capacidad para reconocer problemas y poder encontrar una solucion o eficacia es rapida. <br> A continuacion
             enlistare los lenguajes de programacion que aprendi:
             <ul>
-              <li>c++</li>
-              <li>html</li>
-              <li>css</li>
+              <li>C++</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>C#</li>
             </ul>
           </div>
         </div>
