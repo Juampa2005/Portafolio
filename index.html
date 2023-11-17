@@ -24,12 +24,23 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./About me/Follow me.html">Sigueme</a>
+            <a class="nav-link active" aria-current="page" href="https://juampa2005.github.io/Portafolio/">Home</a>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link"
+              href="https://www.canva.com/design/DAFs5oCH7g4/cCSbV0fCP_kY7Syusuf2oA/view?utm_content=DAFs5oCH7g4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink"
+              target="_blank">Stackoverflow
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"
+              href="https://www.canva.com/design/DAFv4FVJAiA/GA4MFJxNxhRwp9AoRc1wWA/view?utm_content=DAFv4FVJAiA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink"
+              target="_blank">Detras de las aplicaciones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/Juampa2005/-Flask" target="_blank">Flask</a>
+          </li>
 
         </ul>
 
@@ -40,7 +51,7 @@
 
     <h1 class="text-center bg-dark opacity-75 text-light opacity p-3">Juan Pablo Ruiz 192034</h1>
 
-    <div class="container text-light p-3">
+    <div class="container text-light p-5">
 
       <div class="col">
         <div id="carouselExampleIndicators" class="carousel slide ">
@@ -55,7 +66,7 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="row align-items-center">
-                <div class="col text-center ">
+                <div class="col text-center" style="padding-left: 100px;">
                   <h1 class="text-end fw-bolder">IA Detección de objetos</h1>
                   <div class="text-end ">
                     <h2>Detecta en tiempo real mediante una webcam mediante Machine learning en la pagina web de
@@ -64,9 +75,11 @@
                 </div>
                 <div class="col">
                   <div>Teachable Machine Image Model</div>
-                  <button type="button" onclick="init()">Start</button>
+                  <button type="button" class="btn btn-primary" onclick="init()">Start</button>
                   <div id="webcam-container"></div>
-                  <div id="label-container"></div>
+                  <div id="label-container" class="col-6  text-bg-primary p-1 rounded-3 ">
+
+                  </div>
                   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
                   <script
                     src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
@@ -93,7 +106,7 @@
 
                       // Convenience function to setup a webcam
                       const flip = true; // whether to flip the webcam
-                      webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+                      webcam = new tmImage.Webcam(400, 400, flip); // width, height, flip
                       await webcam.setup(); // request access to the webcam
                       await webcam.play();
                       window.requestAnimationFrame(loop);
@@ -130,7 +143,7 @@
 
             <div class="carousel-item">
               <div class="row align-items-center justify-content-center">
-                <div class="col text-center ">
+                <div class="col text-center" style="padding-left: 100px;">
                   <h1 class="text-end fw-bolder   ">Aplicacion con FlutterFlow</h1>
                   <div class="text-end ">
                     <h2>Realize una aplicacion sobre como seria una aplicacion de tiendas de guitarra</h2>
@@ -143,15 +156,14 @@
             </div>
             <div class="carousel-item">
               <div class="row align-items-center justify-content-center">
-                <div class="col text-center ">
-                  <h1 class="text-end fw-bolder">Proyecto 3</h1>
+                <div class="col text-center " style="padding-left: 100px;" -,.u3>
+                  <h1 class="text-end fw-bolder">Primer Portafolio</h1>
                   <div class="text-end ">
-                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto odit, facilis est laboriosam
-                      inventore labore itaque eveniet aspernatur molestias ad iste unde quidem nobis temporibus
-                      perspiciatis mollitia reiciendis beatae quasi.</h2>
+                    <h2>El primer Portafolio web que realize fue sin el uso de boostrap y me estaba inspirando en el
+                      menu del videojuego Overwatch</h2>
                   </div>
                 </div>
-                <div class="col "><img src="./img/Imagen de WhatsApp 2023-09-03 a las 23.27.19.jpg"
+                <div class="col "><img src="./img/Captura de pantalla 2023-09-13 165107.png"
                     class="d-block w-75 rounded-3" style="width: 542px" alt="...">
                 </div>
               </div>
